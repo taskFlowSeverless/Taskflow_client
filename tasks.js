@@ -17,6 +17,7 @@ export async function getProjectTasks(projectId, filters = {}) {
   if (error) throw error;
   return data;
 }
+
 export async function createTask(projectId, taskData) {
   const {
     data: { user },
@@ -39,6 +40,7 @@ export async function createTask(projectId, taskData) {
   if (error) throw error;
   return data;
 }
+
 export async function updateTaskStatus(taskId, status) {
   const valid = ["todo", "in_progress", "review", "done"];
   if (!valid.includes(status)) throw new Error("Statut invalide");
@@ -51,6 +53,7 @@ export async function updateTaskStatus(taskId, status) {
   if (error) throw error;
   return data;
 }
+
 export async function assignTask(taskId, userId) {
   const { data, error } = await supabase
     .from("tasks")
@@ -61,6 +64,7 @@ export async function assignTask(taskId, userId) {
   if (error) throw error;
   return data;
 }
+
 export async function addComment(taskId, content) {
   const {
     data: { user },
